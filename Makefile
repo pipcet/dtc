@@ -37,7 +37,7 @@ INSTALL_LIB = $(INSTALL)
 INSTALL_DATA = $(INSTALL) -m 644
 INSTALL_SCRIPT = $(INSTALL)
 DESTDIR =
-PREFIX = $(HOME)
+PREFIX ?= $(HOME)
 BINDIR = $(PREFIX)/bin
 LIBDIR = $(PREFIX)/lib
 INCLUDEDIR = $(PREFIX)/include
@@ -56,7 +56,7 @@ endif
 
 NO_YAML := $(shell $(PKG_CONFIG) --exists yaml-0.1; echo $$?)
 ifeq ($(NO_YAML),1)
-	CFLAGS += -DNO_YAML
+	CPPFLAGS += -DNO_YAML
 else
 	LDLIBS_dtc += $(shell $(PKG_CONFIG) --libs yaml-0.1)
 	CFLAGS += $(shell $(PKG_CONFIG) --cflags yaml-0.1)
