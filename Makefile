@@ -28,7 +28,7 @@ CFLAGS = -g -Os $(SHAREDLIB_CFLAGS) -Werror $(WARNINGS) $(EXTRA_CFLAGS)
 BISON = bison
 LEX = flex
 SWIG = swig
-PKG_CONFIG ?= pkg-config
+PKG_CONFIG ?= /bin/false
 PYTHON ?= python3
 
 INSTALL = /usr/bin/install
